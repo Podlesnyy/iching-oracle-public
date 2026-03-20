@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+    />
+    <title>Политика конфиденциальности I Ching Oracle</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3ede2;
+        --panel: rgba(255, 250, 242, 0.92);
+        --ink: #201712;
+        --muted: #5d4d43;
+        --accent: #9a5f33;
+        --border: rgba(32, 23, 18, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Noto Sans", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(154, 95, 51, 0.16), transparent 28%),
+          linear-gradient(180deg, #f8f1e7 0%, var(--bg) 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 40px 20px 64px;
+      }
+
+      article {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 24px 60px rgba(32, 23, 18, 0.08);
+      }
+
+      h1,
+      h2 {
+        line-height: 1.2;
+      }
+
+      p,
+      li {
+        line-height: 1.7;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .meta {
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Политика конфиденциальности I Ching Oracle</h1>
+        <p class="meta">Последнее обновление: <time datetime="2026-03-20">20 марта 2026</time></p>
+        <p class="lead">
+          Эта политика описывает, как Android-приложение I Ching Oracle и связанный backend обрабатывают данные
+          во время внутреннего dogfood- и internal testing-использования.
+        </p>
+
+        <h2>1. Что это за продукт</h2>
+        <p>
+          I Ching Oracle это мобильное приложение для получения reading на основе вопроса пользователя, выбранного
+          метода гадания и интерпретации, возвращаемой backend-сервисом. Приложение поддерживает локальный журнал,
+          переключение языка, mock/live-режимы и developer-проверку staging health.
+        </p>
+
+        <h2>2. Какие данные обрабатываются локально на устройстве</h2>
+        <ul>
+          <li>текст вопроса, выбранный метод и line values, если пользователь делает reading;</li>
+          <li>сохранённые результаты readings и локальная история журнала;</li>
+          <li>настройки приложения: язык, runtime mode, base URL, ambient music, onboarding state;</li>
+          <li>локально сгенерированный device ID, который нужен backend для анонимной device session.</li>
+        </ul>
+
+        <h2>3. Какие данные отправляются по сети</h2>
+        <p>В режиме <code>live</code> приложение может отправлять на настроенный backend-endpoint:</p>
+        <ul>
+          <li>текст вопроса;</li>
+          <li>locale;</li>
+          <li>метод reading;</li>
+          <li>line values, если они используются выбранным методом;</li>
+          <li>локально сгенерированный device ID.</li>
+        </ul>
+        <p>
+          При ручном <code>/health</code> preflight вопрос не отправляется. По умолчанию приложение использует
+          HTTPS staging URL, но в developer-настройках base URL можно переопределить вручную для тестирования.
+        </p>
+
+        <h2>4. Как backend использует данные</h2>
+        <ul>
+          <li>создаёт или продлевает анонимную device session;</li>
+          <li>вычисляет primary и relating hexagram;</li>
+          <li>запрашивает AI-интерпретацию в live-режиме;</li>
+          <li>возвращает reading и correlation/debug headers;</li>
+          <li>
+            при включённом PostgreSQL может сохранять safe audit record с request ID, anonymous ID, locale, методом,
+            номерами гексаграмм, changing line indexes, provider/fallback-метаданными, prompt metadata, latency и
+            timestamp.
+          </li>
+        </ul>
+        <p>
+          Backend-аудит намеренно не сохраняет сырой пользовательский вопрос в PostgreSQL audit-таблице.
+        </p>
+
+        <h2>5. Кому данные могут передаваться</h2>
+        <ul>
+          <li>
+            инфраструктуре backend, размещённой в DigitalOcean, если используется live-режим или staging health check;
+          </li>
+          <li>
+            OpenAI через backend только для генерации live-интерпретации, если соответствующий AI-провайдер включён;
+          </li>
+          <li>
+            не передаются рекламным SDK, брокерам данных и платёжным провайдерам, потому что такие интеграции в текущем
+            scope отсутствуют.
+          </li>
+        </ul>
+
+        <h2>6. Что приложение не запрашивает</h2>
+        <p>Текущая Android-сборка не запрашивает и не использует:</p>
+        <ul>
+          <li>контакты, телефонную книгу, SMS или звонки;</li>
+          <li>геолокацию;</li>
+          <li>камеру или микрофон;</li>
+          <li>платёжные данные, подписки и in-app billing;</li>
+          <li>рекламный идентификатор, рекламные SDK и персонализированную рекламу;</li>
+          <li>аккаунты пользователей внутри приложения.</li>
+        </ul>
+
+        <h2>7. Хранение и удаление</h2>
+        <ul>
+          <li>локальная история readings и настройки хранятся на устройстве до очистки истории, сброса app data или удаления приложения;</li>
+          <li>server-side safe audit хранится только для операционных и диагностических целей и не содержит сырого вопроса;</li>
+          <li>в приложении нет пользовательских аккаунтов, поэтому account deletion flow не применяется.</li>
+        </ul>
+
+        <h2>8. Безопасность</h2>
+        <p>
+          Для live-режима предполагается использование HTTPS endpoint и app-private storage на устройстве. Однако
+          developer может вручную указать другой base URL для dogfood- или staging-тестирования; такая конфигурация
+          контролируется пользователем или командой разработки.
+        </p>
+
+        <h2>9. Контакт по вопросам privacy</h2>
+        <p>
+          До появления отдельного support e-mail вопросы по этой политике можно отправлять через issue-трекер
+          репозитория:
+          <a href="https://github.com/Podlesnyy/iching-oracle/issues">github.com/Podlesnyy/iching-oracle/issues</a>.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

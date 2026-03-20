@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+    />
+    <title>I Ching Oracle Public</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3ede2;
+        --panel: rgba(255, 250, 242, 0.88);
+        --ink: #201712;
+        --muted: #655348;
+        --accent: #9a5f33;
+        --border: rgba(32, 23, 18, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Noto Sans", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(154, 95, 51, 0.16), transparent 32%),
+          linear-gradient(180deg, #f8f1e7 0%, var(--bg) 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px 20px;
+      }
+
+      article {
+        width: 100%;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 24px 60px rgba(32, 23, 18, 0.08);
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>I Ching Oracle</h1>
+        <p>Публичные материалы проекта для Google Play и внешних ссылок.</p>
+        <p>
+          Основной документ:
+          <a href="./privacy-policy/">Политика конфиденциальности</a>
+        </p>
+        <p>
+          Исходный репозиторий:
+          <a href="https://github.com/Podlesnyy/iching-oracle">Podlesnyy/iching-oracle</a>
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
