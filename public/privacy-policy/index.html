@@ -7,7 +7,7 @@
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; img-src 'self' data:; style-src 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
     />
-    <title>Privacy Policy for I Ching Oracle</title>
+    <title>Privacy Policy for I Ching Dialogue</title>
     <style>
       :root {
         color-scheme: light;
@@ -81,15 +81,15 @@
     <main>
       <article>
         <h1>Privacy Policy</h1>
-        <p class="meta">Last updated: March 20, 2026</p>
+        <p class="meta">Last updated: August 10, 2026</p>
         <p class="lead">
           This Privacy Policy describes Our policies and procedures on the collection, use and
-          disclosure of Your information when You use I Ching Oracle and tells You about Your
+          disclosure of Your information when You use I Ching Dialogue and tells You about Your
           privacy rights and how the law may protect You.
         </p>
         <p>
-          We use Personal Data to provide and improve the Service. By using the Service, You agree
-          to the collection and use of information in accordance with this Privacy Policy.
+          We process Personal Data needed to provide and secure the Service as described below.
+          Optional product analytics is disabled unless You expressly allow it in the Application.
         </p>
 
         <h2>Interpretation and Definitions</h2>
@@ -104,12 +104,12 @@
         <p>For the purposes of this Privacy Policy:</p>
         <ul>
           <li>
-            <strong>Application</strong> refers to I Ching Oracle, the mobile software program
+            <strong>Application</strong> refers to I Ching Dialogue, the mobile software program
             provided by the Company.
           </li>
           <li>
             <strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our")
-            refers to the operators of I Ching Oracle.
+            refers to Asana AI, LLC.
           </li>
           <li>
             <strong>Device</strong> means any device that can access the Service such as a
@@ -136,10 +136,6 @@
             <strong>Website</strong> refers to the public project page at
             <a href="https://podlesnyy.github.io/iching-oracle-public/"
               >https://podlesnyy.github.io/iching-oracle-public/</a
-            >
-            and the source repository at
-            <a href="https://github.com/Podlesnyy/iching-oracle"
-              >https://github.com/Podlesnyy/iching-oracle</a
             >.
           </li>
           <li>
@@ -164,6 +160,16 @@
           <li>
             a locally generated device identifier used to maintain an anonymous device session;
           </li>
+          <li>
+            a Google Sign-In account identifier for paid In-depth purchases, restore, and access
+            checks. We do not store Your Google email address, name, profile photo, or the raw
+            Google account subject in ordinary backend records;
+          </li>
+          <li>
+            a Sign in with Apple account identifier for paid In-depth purchases, restore, and
+            access checks. The Application does not request Your Apple email address or name, and
+            We do not store the raw Apple account subject in ordinary backend records;
+          </li>
           <li>contact details and any information You voluntarily provide if You contact Us.</li>
         </ul>
 
@@ -176,9 +182,12 @@
           <li>saved readings and local journal history;</li>
           <li>
             application settings such as language, runtime mode, base URL, ambient audio
-            preference, and onboarding state;
+            preference, product analytics consent state, and onboarding state;
           </li>
-          <li>technical metadata required to render readings and support diagnostics.</li>
+          <li>technical metadata required to render readings and support diagnostics;</li>
+          <li>
+            a paid-access account session token if You sign in with Google or Apple for In-depth access.
+          </li>
         </ul>
         <p>
           The current release scope does not request access to Your contacts, camera, microphone,
@@ -186,12 +195,46 @@
         </p>
 
         <h4>Usage Data</h4>
-        <p>Usage Data is collected automatically when using the Service.</p>
+        <p>
+          The Application and backend process limited technical Usage Data needed to provide,
+          secure, and troubleshoot the Service. Optional Firebase Analytics data is handled under
+          the separate choice described below.
+        </p>
         <p>
           Usage Data may include technical information such as Your Device's IP address when
-          communicating with the backend, app version, request timestamps, latency metrics, crash
-          or diagnostic information, mobile platform details, unique device identifiers, and
+          communicating with the backend, app version, request timestamps, latency metrics, mobile
+          platform details, an anonymous installation or session identifier, safe error codes, and
           similar operational data.
+        </p>
+        <p>
+          The current Android and iOS Application targets do not include Firebase Crashlytics and
+          do not send crash, ANR, or handled-exception reports to Firebase Crashlytics. The mobile
+          operating system and app store may separately provide crash or stability information
+          under their own settings and privacy terms.
+        </p>
+        <p>
+          Android and iOS public-store builds may use Firebase Analytics only after You expressly
+          enable optional app-usage sharing. Collection is off before that choice and remains off
+          if You continue without sharing. Your choice does not affect readings, paid access,
+          purchases, or restore. You can change the choice at any time in the About section of
+          Settings. Disabling sharing stops new manual product events and asks the Analytics SDK to
+          stop collection and reset its local analytics data. On the first later opt-in, the
+          Application keeps collection disabled while it clears local Analytics data that may
+          remain from an earlier Application version, and only then enables the new consent.
+        </p>
+        <p>
+          Manual Firebase Analytics events are limited to allowlisted product events and allowlisted
+          parameters such as source, reading type, method, submit mode, entitlement state, product
+          type, safe error code, HTTP status, and locale. We do not add question text, answer text,
+          follow-up text, lineage, raw reading identifiers, Support ID or short support code,
+          purchase token or hash, order ID, purchase region, test purchase flag, purchase completion
+          time, backend response body, AI provider payload, file path, free-form exception message,
+          email, account identifier, or a developer-supplied user identifier to these events.
+          Firebase Analytics automatically assigns an app-instance identifier and may collect
+          general device information, language, and approximate location derived during network
+          collection.
+          We do not call Firebase Analytics setUserId and do not set Analytics user properties with
+          Support ID, account, or purchase/order data.
         </p>
         <p>
           When the Application is in live mode, the backend may create a safe audit record for
@@ -211,12 +254,23 @@
             locally generated device identifier without requiring an in-app account.
           </li>
           <li>
+            <strong>To manage paid access:</strong> to verify Google Sign-In or Sign in with Apple
+            for paid In-depth access, link Google Play or App Store purchases to an account-level
+            entitlement, restore eligible purchases after reinstall or clear data, sign You out,
+            and process account deletion requests.
+          </li>
+          <li>
             <strong>To provide live interpretation:</strong> when live mode is enabled, to send the
             required reading context through Our backend to the configured AI provider.
           </li>
           <li>
             <strong>To support diagnostics and security:</strong> to monitor service health,
             investigate failures, prevent abuse, and maintain infrastructure reliability.
+          </li>
+          <li>
+            <strong>To validate in-app purchases and subscriptions:</strong> to confirm Google Play
+            or App Store purchase state, update access to paid in-depth readings, and restore
+            purchases when You request it.
           </li>
           <li><strong>To manage Your requests:</strong> to respond if You contact Us.</li>
           <li>
@@ -237,13 +291,49 @@
             OpenAI when enabled;
           </li>
           <li>
+            Google Play services used to process in-app purchases and subscriptions and to verify
+            purchase state through the Google Play Developer API;
+          </li>
+          <li>
+            Google Sign-In services used only to verify the Google account selected for paid
+            In-depth purchase, restore, and access checks;
+          </li>
+          <li>
+            Apple services used for Sign in with Apple, App Store purchases and subscriptions, and
+            App Store transaction validation;
+          </li>
+          <li>
+            Firebase Analytics, used on eligible Android and iOS public-store builds for
+            allowlisted product events only after You expressly enable optional app-usage sharing;
+          </li>
+          <li>
             development and operational tooling strictly needed to secure, monitor, or maintain the
             Service.
           </li>
         </ul>
         <p>
-          We do not use advertising SDKs, in-app payments, social login providers, or contact-book
-          integrations in the current release scope.
+          In-app purchases and subscriptions are processed by Google Play on Android and by the App
+          Store on iOS. The Application and Our backend may receive purchase identifiers such as
+          product ID, purchase type, order ID, purchase token, transaction ID, and original
+          transaction ID for validation and restore. We do not store the full Google Play purchase
+          token or signed App Store transaction in ordinary backend records; We store minimized
+          identifiers and validation data for entitlement, audit, and fraud-prevention purposes.
+        </p>
+        <p>
+          Google Sign-In for paid access sends a Google ID token from the Application to Our
+          backend. The backend verifies the token with Google, stores a keyed hash of the stable
+          Google subject, creates an internal account identifier, and stores only a hash of the
+          account session token. We do not use Your Google email address as a billing key.
+        </p>
+        <p>
+          Sign in with Apple for paid access sends an Apple identity token from the Application to
+          Our backend. The backend verifies the token with Apple, stores a keyed hash of the stable
+          Apple subject, creates an internal account identifier, and stores only a hash of the
+          account session token. The Application does not request Your Apple email address or name.
+        </p>
+        <p>
+          We do not use advertising SDKs, contact-book integrations, or developer-supplied Firebase
+          Analytics User-ID values in the current release scope.
         </p>
 
         <h3>Retention of Your Personal Data</h3>
@@ -258,8 +348,36 @@
             data, remove entries, or uninstall the Application;
           </li>
           <li>
-            operational and diagnostic records may be retained on the backend for security,
-            troubleshooting, and service reliability;
+            operational, entitlement, and purchase-validation records may be retained on the
+            backend for security, troubleshooting, purchase restore, fraud prevention, and service
+            reliability;
+          </li>
+          <li>
+            account identity records for paid access are retained while the account is active.
+            Account deletion removes the Google or Apple identity link, revokes active account
+            sessions, scrubs linked account, installation, reading, and request identifiers, and
+            prevents future use of the old account identifier. For an Apple account, the backend
+            also attempts to revoke the Apple credential. That revocation may finish
+            asynchronously or fail after bounded retries while local account deletion still
+            completes;
+          </li>
+          <li>
+            backend LLM exchange logs that may include reading questions, generated answers, and
+            AI provider request/response payloads are retained for a limited operational window.
+            After account deletion, these payloads may remain without the scrubbed account and
+            installation links for up to the default 30-day production retention window, after
+            which a scheduled backend job deletes older records;
+          </li>
+          <li>
+            purchase, billing ledger, grant, usage, refund, and chargeback history may be retained
+            under a replacement pseudonymous billing reference for purchase restore, accounting,
+            fraud prevention, and legal obligations;
+          </li>
+          <li>
+            Firebase Analytics app-instance data and allowlisted product events are retained by
+            Firebase according to the provider's service settings only after optional app-usage
+            sharing has been enabled. Disabling sharing stops new collection but does not by itself
+            delete data already processed by the provider;
           </li>
           <li>
             where feasible, server-side audit data is minimized and excludes the raw question text.
@@ -275,9 +393,43 @@
 
         <h3>Delete Your Personal Data</h3>
         <p>
-          You may delete locally stored data by clearing app data or uninstalling the Application.
-          You may also contact Us to request access to, correction of, or deletion of Personal Data
-          that You have provided to Us, subject to legal and operational constraints.
+          You may delete local Journal entries from the Application. Clearing app data where the
+          platform provides that action, or uninstalling the Application, also deletes locally
+          stored data. You may contact Us to request access to, correction of, or deletion of
+          Personal Data that You have provided to Us, subject to legal and operational constraints.
+        </p>
+        <p>
+          If You used Google Sign-In or Sign in with Apple for paid In-depth access, the Application
+          may also provide an account deletion action. It removes the account identity link and
+          sessions and scrubs related identifiers. Questions, generated answers, and AI provider
+          payloads may remain without those links for up to 30 days. Pseudonymized purchase and
+          billing history may be retained where necessary to verify purchases, handle refunds or
+          chargebacks, prevent abuse, or comply with law. Deleting an account does not delete the
+          local Journal and does not cancel an App Store or Google Play subscription; You must
+          cancel an active subscription in the applicable store.
+        </p>
+        <p>
+          Until the Service confirms account sign-out, the Application may keep the prior account
+          session in protected on-device storage solely to retry revoking that same server session
+          at app launch or when You retry. It is not exposed as an active account session, and new
+          account sign-in, purchases, restores, and paid readings remain blocked until sign-out is
+          confirmed.
+        </p>
+        <p>
+          Until the Service confirms an account deletion result, the Application may keep the
+          original deletion request in protected on-device storage and resend that same request at
+          app launch or when You retry. The Application does not expose this data as an active
+          account session and clears it after a confirmed result or when the protected request can
+          no longer be used. A later Sign in with Apple action is ordinary authentication: it may
+          open the selected existing account or create a new account if none exists. It does not
+          check or confirm deletion of the previous account or any other Apple ID.
+        </p>
+        <p>
+          Cached paid-access status and queued paid-reading jobs use a keyed opaque account-owner
+          value in application preferences instead of the raw internal account identifier. The
+          separate key and any recovery identity needed to finish local cleanup are kept in
+          device-only protected storage. A recovery identity is removed after cleanup before the
+          Application permits replacement account sign-in.
         </p>
 
         <h3>Disclosure of Your Personal Data</h3>
@@ -347,13 +499,12 @@
         </p>
 
         <h2>Contact Us</h2>
-        <p>If You have any questions about this Privacy Policy, You can contact Us:</p>
+        <p>
+          For privacy questions, access requests, or deletion requests, You can contact Us:
+        </p>
         <ul>
           <li>
-            by opening an issue in the project repository:
-            <a href="https://github.com/Podlesnyy/iching-oracle/issues"
-              >https://github.com/Podlesnyy/iching-oracle/issues</a
-            >
+            by email: <a href="mailto:support@anyposeai.com">support@anyposeai.com</a>
           </li>
           <li>
             through the public project page:
