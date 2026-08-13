@@ -81,7 +81,7 @@
     <main>
       <article>
         <h1>Privacy Policy</h1>
-        <p class="meta">Last updated: August 10, 2026</p>
+        <p class="meta">Last updated: August 12, 2026</p>
         <p class="lead">
           This Privacy Policy describes Our policies and procedures on the collection, use and
           disclosure of Your information when You use I Ching Dialogue and tells You about Your
@@ -182,7 +182,8 @@
           <li>saved readings and local journal history;</li>
           <li>
             application settings such as language, runtime mode, base URL, ambient audio
-            preference, product analytics consent state, and onboarding state;
+            preference, product analytics consent state, OpenAI processing consent state, and
+            onboarding state;
           </li>
           <li>technical metadata required to render readings and support diagnostics;</li>
           <li>
@@ -192,6 +193,38 @@
         <p>
           The current release scope does not request access to Your contacts, camera, microphone,
           or precise location.
+        </p>
+
+        <h4>OpenAI Processing Choice</h4>
+        <p>
+          On iOS, before the first new In-depth interpretation, In-depth version of a Standard
+          reading, or Follow-up request is sent, the Application asks You to allow processing by
+          OpenAI. I Ching Dialogue sends the data through Our backend to OpenAI only for the purpose
+          of generating the In-depth interpretation or Follow-up answer You requested.
+        </p>
+        <p>
+          The disclosed data categories are Your question; response language; selected line-building
+          method; the six line values submitted by the Application and the six resolved line values;
+          and hexagram and changing-line texts. Follow-up also includes prior questions and
+          interpretations, primary and relating hexagram numbers, changing-line indexes, and
+          pseudonymous technical reading identifiers that link the request to earlier readings. Standard
+          readings remain on Your Device and remain available if You choose Not now. Before You
+          allow processing, the iOS client does not send the protected request, create the backend
+          interpretation job, or use an In-depth reading.
+        </p>
+        <p>
+          Before a new purchase, the Application shows this choice after You select the purchase but
+          before Sign in with Apple and App Store confirmation. Restoring an earlier purchase does
+          not require this choice; if needed, the Application asks before the next new In-depth or
+          Follow-up request. You can review or withdraw this choice in the About section of iOS
+          Settings, which does not provide a preselected control or grant permission outside a new
+          action. Withdrawal blocks future new protected requests, but cannot recall a request
+          already sent or delete
+          data already processed by Our backend or OpenAI. Settings cannot enable processing.
+          Android currently does not provide this
+          separate provider-specific control: after Your intentional In-depth or Follow-up action
+          and any required access step, Android sends the necessary data through Our backend to
+          OpenAI as described in this Policy.
         </p>
 
         <h4>Usage Data</h4>
@@ -218,9 +251,12 @@
           if You continue without sharing. Your choice does not affect readings, paid access,
           purchases, or restore. You can change the choice at any time in the About section of
           Settings. Disabling sharing stops new manual product events and asks the Analytics SDK to
-          stop collection and reset its local analytics data. On the first later opt-in, the
-          Application keeps collection disabled while it clears local Analytics data that may
-          remain from an earlier Application version, and only then enables the new consent.
+          deny Analytics storage and advertising-related consent categories, stop collection, and
+          reset its local analytics data. On the first later opt-in, the Application keeps
+          collection disabled while it denies all Analytics consent categories and clears local
+          Analytics data that may remain from an earlier Application version. It then grants only
+          Analytics storage and enables collection. Advertising storage, advertising user data,
+          and ad personalization remain denied.
         </p>
         <p>
           Manual Firebase Analytics events are limited to allowlisted product events and allowlisted
@@ -232,9 +268,24 @@
           email, account identifier, or a developer-supplied user identifier to these events.
           Firebase Analytics automatically assigns an app-instance identifier and may collect
           general device information, language, and approximate location derived during network
-          collection.
+          collection. This app-instance identifier is specific to the app installation and is not
+          Your account ID or an advertising identifier.
           We do not call Firebase Analytics setUserId and do not set Analytics user properties with
           Support ID, account, or purchase/order data.
+        </p>
+        <p>
+          After permission, Firebase Analytics may also record SDK-generated app lifecycle events,
+          including first open, app update, OS update, session start, and user engagement. Automatic
+          screen reporting is disabled. The iOS target does not call the StoreKit 2 transaction
+          logging API, and its minimal Analytics dependency omits the identity-support and
+          on-device ads-conversion components.
+        </p>
+        <p>
+          Optional Analytics is used only to understand app use and improve flows, usability, and
+          product quality. We do not use this data for advertising or personalization and do not
+          sell it. Questions, interpretations, Journal or Follow-up text, line values, account,
+          support or purchase identifiers, crash reports, and diagnostic payloads are not included
+          in optional product Analytics.
         </p>
         <p>
           When the Application is in live mode, the backend may create a safe audit record for
