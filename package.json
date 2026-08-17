@@ -1,0 +1,8 @@
+{
+  "name": "iching-oracle-public-redirect",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tools/redirect.test.mjs"
+  }
+}

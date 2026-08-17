@@ -1,12 +1,13 @@
-# I Ching Oracle Public
+# I Ching Dialogue legacy redirects
 
-Публичный репозиторий со статическими страницами проекта I Ching Oracle.
+Этот публичный репозиторий сохраняет совместимость старых GitHub Pages URL после переноса
+потребительского сайта в Cloudflare Pages.
 
-Содержимое:
+- Корень, Privacy Policy и любой неизвестный путь перенаправляются на тот же путь на
+  `https://ichingdialogue.app`.
+- Query string и fragment сохраняются через `public/redirect.js`.
+- Meta refresh остается запасным переходом для браузеров без JavaScript.
+- Публиковать этот пакет можно только после успешного readback нового сайта и Privacy Policy.
 
-- `public/` — публичные страницы для внешних ссылок и Google Play;
-- `.github/workflows/public-pages.yml` — GitHub Actions workflow для публикации GitHub Pages.
-
-Исходный приватный репозиторий приложения и backend:
-
-- https://github.com/Podlesnyy/iching-oracle
+Канонический исходный код сайта и приложения остается в приватном репозитории
+`Podlesnyy/iching-oracle`.
